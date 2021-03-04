@@ -9,8 +9,6 @@ const Layout = ({ children, ...props }) => {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        fontFamily: "Lato",
-        fontSize: "18px",
       }}
       {...props}
     >
