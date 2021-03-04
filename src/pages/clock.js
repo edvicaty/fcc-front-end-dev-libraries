@@ -5,6 +5,7 @@ import { navLinks, clockHelpers } from "../helpers/constants"
 import { formatDate } from "../helpers/functions/clockFunctions"
 
 const ClockPage = () => {
+  // TODO: move functions into own folder
   const [breakLength, setBreakLength] = useState(clockHelpers.defaultBreak)
   const [sessionLength, setSessionLength] = useState(clockHelpers.defaultLength)
   const remainingBreakRef = useRef(clockHelpers.defaultBreak)
@@ -50,6 +51,7 @@ const ClockPage = () => {
   }
 
   const handleBreakChange = number => {
+    //  handle change when modifying break length
     setBreakLength(number)
     targetSessionBreakRef.current = number
     remainingBreakRef.current = number
@@ -57,6 +59,7 @@ const ClockPage = () => {
   }
 
   const handleLengthChange = number => {
+    //  handle change when modifying Session length
     setSessionLength(number)
     targetSessionLengthRef.current = number
     remainingSessionRef.current = number

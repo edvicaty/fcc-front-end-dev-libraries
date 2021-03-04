@@ -9,7 +9,7 @@ const LinkComponent = ({ children, to, sx, ...props }) => {
       <Text
         sx={{
           ...sx,
-          ":hover": { transform: "scale(1.15)" },
+          ":hover": { transform: "scale(1.1) translateY(0.3rem)" },
         }}
       >
         {children}

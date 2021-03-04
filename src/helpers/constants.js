@@ -25,6 +25,7 @@ export const clockHelpers = {
 }
 
 export const navLinks = [
+  { to: "/", text: "Home" },
   { to: "/drum/", text: "Drum" },
   { to: "/markdown/", text: "Markdown" },
   { to: "/random-quote/", text: "Random Quote" },

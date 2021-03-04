@@ -8,7 +8,9 @@ const Navbar = ({ links, ...props }) => {
     <Box
       __css={{
         display: "flex",
-        justifyContent: "flexStart",
+        justifyContent: "space-around",
+        width: "100%",
+        mt: "5px",
       }}
       {...props}
     >
@@ -16,7 +18,7 @@ const Navbar = ({ links, ...props }) => {
         links.map(link => (
           <Link
             sx={{
-              margin: "small",
+              margin: "xsmall",
             }}
             key={link.text}
             to={link.to}
