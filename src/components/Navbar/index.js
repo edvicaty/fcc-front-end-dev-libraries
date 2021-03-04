@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "../index"
 import { Box } from "theme-ui"
+import PropTypes from "prop-types"
 
 const Navbar = ({ links, ...props }) => {
   return (
@@ -19,6 +20,15 @@ const Navbar = ({ links, ...props }) => {
         ))}
     </Box>
   )
+}
+
+Navbar.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+    })
+  ),
 }
 
 export default Navbar

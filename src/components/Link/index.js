@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import PropTypes from "prop-types"
 
 const LinkComponent = ({ children, to, ...props }) => {
   return (
@@ -7,6 +8,11 @@ const LinkComponent = ({ children, to, ...props }) => {
       {children}
     </Link>
   )
+}
+
+LinkComponent.propTypes = {
+  children: PropTypes.node.isRequired,
+  to: PropTypes.string.isRequired,
 }
 
 export default LinkComponent

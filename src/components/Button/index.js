@@ -1,5 +1,6 @@
 import React from "react"
 import { Box } from "theme-ui"
+import PropTypes from "prop-types"
 
 const Button = ({ children, ...props }) => {
   return (
@@ -17,6 +18,10 @@ const Button = ({ children, ...props }) => {
       {children}
     </Box>
   )
+}
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Button
