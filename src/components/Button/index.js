@@ -11,7 +11,7 @@ const Button = ({ children, ...props }) => {
         border: "1px solid lightGrey",
         borderRadius: "3px",
         fontSize: "base",
-        boxShadow: "md",
+        boxShadow: "0px 0px 12px -2px rgba(0, 0, 0, 0.15)",
       }}
       {...props}
     >

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { LayoutBlock } from "../blocks"
+import { LayoutBlock, CardBlock } from "../blocks"
 
 const links = [
   { to: "/drum/", text: "Drum" },
@@ -14,6 +14,11 @@ const IndexPage = () => (
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
+    <CardBlock title={{ heading: "h2", text: "Some Card Text" }}>
+      <h1>Hi people</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+    </CardBlock>
   </LayoutBlock>
 )
 
