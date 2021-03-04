@@ -5,7 +5,7 @@ import { Text } from "../index"
 
 const LinkComponent = ({ children, to, sx, ...props }) => {
   return (
-    <Link style={{ textDecoration: "none" }} to={to} {...props}>
+    <Link style={{ textDecoration: "none", width: "100%" }} to={to} {...props}>
       <Text
         sx={{
           ...sx,
