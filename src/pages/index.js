@@ -1,6 +1,5 @@
 import * as React from "react"
-import { Layout } from "../components"
-import { HeaderBlock } from "../blocks"
+import { LayoutBlock } from "../blocks"
 
 const links = [
   { to: "/drum/", text: "Drum" },
@@ -11,12 +10,11 @@ const links = [
 ]
 
 const IndexPage = () => (
-  <Layout>
-    <HeaderBlock links={links} />
+  <LayoutBlock navLinks={links}>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-  </Layout>
+  </LayoutBlock>
 )
 
 export default IndexPage
