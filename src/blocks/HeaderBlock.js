@@ -1,9 +1,12 @@
 import React from "react"
-import { Box } from "theme-ui"
-import { Header } from "../components"
+import { Header, Navbar } from "../components"
 
-const HeaderBlock = () => {
-  return <Header></Header>
+const HeaderBlock = ({ links }) => {
+  return (
+    <Header>
+      <Navbar links={links} />
+    </Header>
+  )
 }
 
 export default HeaderBlock

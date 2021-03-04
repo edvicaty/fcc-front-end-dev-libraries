@@ -1,8 +1,8 @@
 import React from "react"
-import { Link } from "../components"
+import { Link } from "../index"
 import { Box } from "theme-ui"
 
-const NavbarBlock = ({ links, ...props }) => {
+const Navbar = ({ links, ...props }) => {
   return (
     <Box
       __css={{
@@ -21,4 +21,4 @@ const NavbarBlock = ({ links, ...props }) => {
   )
 }
 
-export default NavbarBlock
+export default Navbar
