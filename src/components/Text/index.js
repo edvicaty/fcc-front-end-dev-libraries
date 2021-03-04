@@ -3,7 +3,11 @@ import { Box } from "theme-ui"
 import PropTypes from "prop-types"
 
 const Text = ({ children, ...props }) => {
-  return <Box {...props}>{children}</Box>
+  return (
+    <Box __css={{ margin: "tiny" }} {...props}>
+      {children}
+    </Box>
+  )
 }
 
 Text.propTypes = {

@@ -16,6 +16,15 @@ export default {
     "4xl": "2.25rem",
     "5xl": "3rem",
   },
+  space: {
+    none: 0,
+    tiny: "0.25rem",
+    xsmall: "0.5rem",
+    small: "1rem",
+    medium: "2rem",
+    large: "4rem",
+    xlarge: "8rem",
+  },
   styles: {
     root: {
       fontFamily: "body",

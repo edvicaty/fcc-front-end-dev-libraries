@@ -23,3 +23,11 @@ export const clockHelpers = {
   breakIds,
   sessionIds,
 }
+
+export const navLinks = [
+  { to: "/drum/", text: "Drum" },
+  { to: "/markdown/", text: "Markdown" },
+  { to: "/random-quote/", text: "Random Quote" },
+  { to: "/clock/", text: "Clock" },
+  { to: "/calculator/", text: "Calculator" },
+]
