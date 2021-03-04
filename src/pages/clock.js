@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import { LayoutBlock, CardBlock, ClockLengthBlock } from "../blocks"
+import { LayoutBlock, ClockLengthBlock } from "../blocks"
 import { Text, Heading, Button, Wrapper } from "../components"
 import { navLinks, clockHelpers } from "../helpers/constants"
 import { formatDate } from "../helpers/functions/clockFunctions"
@@ -27,7 +27,7 @@ const ClockPage = () => {
     clickAudio.current = new Audio(
       "https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-46416/zapsplat_technology_computer_mouse_click_apple_003_47279.mp3?_=3"
     )
-    clickAudio.current.volume = 0.1
+    clickAudio.current.volume = 0.2
   }, [])
 
   const manageReset = () => {
@@ -127,15 +127,15 @@ const ClockPage = () => {
         ids={clockHelpers.sessionIds}
       />
 
-      <CardBlock title={{ heading: "h2", text: "Session" }}>
-        <Text>Remaining:</Text>
+      <Wrapper title={{ heading: "h2", text: "Session" }}>
+        <Heading as="h2">Remaining</Heading>
         <Text id="time-left">{formatDate(sessionLength)}</Text>
-      </CardBlock>
+      </Wrapper>
 
-      <CardBlock title={{ heading: "h2", text: "Break" }}>
-        <Text>Remaining:</Text>
+      <Wrapper title={{ heading: "h2", text: "Break" }}>
+        <Heading as="h2">Time to break</Heading>
         <Text>{formatDate(breakLength)}</Text>
-      </CardBlock>
+      </Wrapper>
 
       <Text>{displayTimerMessage && "A new session has begun"}</Text>
 

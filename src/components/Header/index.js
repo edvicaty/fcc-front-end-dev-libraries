@@ -10,6 +10,8 @@ const Header = ({ children, ...props }) => {
         position: "fixed",
         display: "flex",
         justifyContent: "spaceBetween",
+        backgroundColor: "white",
+        zIndex: "30",
         top: "0",
         width: "100%",
         padding: "tiny",

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { formatDate } from "../helpers/functions/clockFunctions"
-import { Button } from "../components"
-import { CardBlock } from "./index"
+import { formatDate } from "../../helpers/functions/clockFunctions"
+import { Button } from "../../components"
+import { CardBlock } from "../index"
 
 const ClockLengthBlock = ({
   defaultLength,
