@@ -1,7 +1,8 @@
 import React from "react"
+import Wrapper from "../components/Wrapper"
 
 const LengthBlock = () => {
-  return <div></div>
+  return <Wrapper></Wrapper>
 }
 
 export default LengthBlock
