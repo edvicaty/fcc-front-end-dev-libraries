@@ -3,13 +3,14 @@ import { Wrapper, Heading } from "../components/"
 import { Box } from "theme-ui"
 import PropTypes from "prop-types"
 
-const CardBlock = ({ title, children }) => {
+const CardBlock = ({ title, children, ...props }) => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Heading as={title.heading}>{title.text}</Heading>
       <Box
         __css={{
           display: "flex",
+          justifyContent: "space-between",
         }}
       >
         {children}

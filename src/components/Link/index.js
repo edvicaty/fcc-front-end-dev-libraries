@@ -8,8 +8,8 @@ const LinkComponent = ({ children, to, sx, ...props }) => {
     <Link style={{ textDecoration: "none" }} to={to} {...props}>
       <Text
         sx={{
-          ":hover": { transform: "scale(1.15)" },
           ...sx,
+          ":hover": { transform: "scale(1.15)" },
         }}
       >
         {children}

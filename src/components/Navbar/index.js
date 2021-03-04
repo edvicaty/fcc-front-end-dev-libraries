@@ -16,7 +16,7 @@ const Navbar = ({ links, ...props }) => {
         links.map(link => (
           <Link
             sx={{
-              margin: "tiny small",
+              margin: "small",
             }}
             key={link.text}
             to={link.to}
