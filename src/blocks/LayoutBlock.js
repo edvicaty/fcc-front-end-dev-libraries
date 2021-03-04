@@ -2,12 +2,13 @@ import React from "react"
 import { Layout } from "../components"
 import { HeaderBlock } from "./index"
 import PropTypes from "prop-types"
+import { Box } from "theme-ui"
 
 const LayoutBlock = ({ navLinks, children }) => {
   return (
     <Layout>
       <HeaderBlock links={navLinks} />
-      {children}
+      <Box as="main">{children}</Box>
     </Layout>
   )
 }
