@@ -3,9 +3,9 @@ import { Wrapper, Heading } from "../components/"
 import { Box } from "theme-ui"
 import PropTypes from "prop-types"
 
-const CardBlock = ({ title, children, ...props }) => {
+const CardBlock = ({ title, children, border, ...props }) => {
   return (
-    <Wrapper {...props}>
+    <Wrapper border={border} {...props}>
       <Heading as={title.heading}>{title.text}</Heading>
       <Box
         __css={{

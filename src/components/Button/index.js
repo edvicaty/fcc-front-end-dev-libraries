@@ -2,11 +2,15 @@ import React from "react"
 import { Box } from "theme-ui"
 import PropTypes from "prop-types"
 
-const Button = ({ children, ...props }) => {
+const Button = ({ children, id, callback, ...props }) => {
   return (
     <Box
+      id={id}
+      onClick={callback}
       __css={{
-        margin: "large medium",
+        cursor: "pointer",
+        margin: "tiny",
+        padding: "tiny",
         backgroundColor: "white",
         border: "1px solid lightGrey",
         borderRadius: "3px",

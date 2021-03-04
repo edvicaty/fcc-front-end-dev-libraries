@@ -4,7 +4,13 @@ import PropTypes from "prop-types"
 
 const Heading = ({ as, children, ...props }) => {
   return (
-    <Box as={as} {...props}>
+    <Box
+      __css={{
+        margin: "tiny",
+      }}
+      as={as}
+      {...props}
+    >
       {children}
     </Box>
   )
