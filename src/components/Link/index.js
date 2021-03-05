@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { Text } from "../index"
 
-const LinkComponent = ({ children, to, sx, ...props }) => {
+const LinkComponent = ({ children, to, sx, border, ...props }) => {
   return (
     <Link
       style={{
@@ -21,7 +21,8 @@ const LinkComponent = ({ children, to, sx, ...props }) => {
           height: "100%",
           padding: "small",
           ":hover": {
-            boxShadow: "0px 0px 12px -2px rgba(0, 0, 0, 0.4)",
+            boxShadow: border ? "0px 0px 12px -2px rgba(0, 0, 0, 0.4)" : null,
+            backgroundColor: "#f2f2f2",
           },
         }}
       >
@@ -34,6 +35,11 @@ const LinkComponent = ({ children, to, sx, ...props }) => {
 LinkComponent.propTypes = {
   children: PropTypes.node.isRequired,
   to: PropTypes.string.isRequired,
+  border: PropTypes.bool,
+}
+
+LinkComponent.defaultProps = {
+  border: true,
 }
 
 export default LinkComponent

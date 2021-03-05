@@ -1,38 +1,18 @@
 import React, { useState } from "react"
 import { LayoutBlock, TextBlock } from "../blocks"
-import { Heading, Button, Text } from "../components"
-import { navLinks, calculatorHelpers } from "../helpers/constants"
+import { Button, Text, Link } from "../components"
+import { navLinks, lorem } from "../helpers/constants"
+import {
+  generateRandomArray,
+  getRandomItem,
+} from "../helpers/functions/generalFunctions"
 
-const shortLorem = "Lorem ipsum dolor sit amet"
-const longLorem =
-  "consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation"
-
-const getRandomIndex = array => {
-  const randomIndex = Math.floor(Math.random() * array.length)
-  return randomIndex
-}
-
-const generateRandomArray = (array, length) => {
-  const randomArr = []
-  for (i = 0; i < length; i++) {
-    const index = getRandomIndex(array)
-    randomArr.push(array[index])
-  }
-  return randomArr
-}
-
-const getRandomItem = array => {
-  const index = getRandomIndex(array)
-  const randomItem = array[index]
-  return randomItem
-}
-////////////////////
 const generateQuotesArray = amount => {
   const quotesArr = []
   for (let i = 0; i < amount; i++) {
     quotesArr.push({
-      author: generateRandomArray(longLorem.split(" "), 2).join(" "),
-      text: generateRandomArray(longLorem.split(" "), 10).join(" "),
+      author: generateRandomArray(lorem.split(" "), 2).join(" "),
+      text: generateRandomArray(lorem.split(" "), 10).join(" "),
     })
   }
   return quotesArr
@@ -41,26 +21,32 @@ const generateQuotesArray = amount => {
 const mockQuotes = generateQuotesArray(10)
 
 const RandomQuotePage = () => {
-  const [quote, setQuote] = React.useState(getRandomItem(mockQuotes))
+  const [quote, setQuote] = useState(getRandomItem(mockQuotes))
 
-  ;<LayoutBlock navLinks={navLinks}>
-    <Heading as="h1">Random quote</Heading>
-    <div id="quote-box">
-      <p id="text">{quote.text}</p>
-      <p id="author">{quote.author}</p>
-      <button
-        id="new-quote"
-        onClick={() => {
-          setQuote(getRandomItem(mockQuotes))
-        }}
+  return (
+    <LayoutBlock navLinks={navLinks}>
+      <TextBlock
+        direction="column"
+        title={{ heading: "h1", text: "Random quote" }}
       >
-        New quote
-      </button>
-      <a href="twitter.com/intent/tweet" id="tweet-quote">
-        Tweet quote
-      </a>
-    </div>
-  </LayoutBlock>
+        <Text>{quote.text}</Text>
+        <Text>{quote.author}</Text>
+      </TextBlock>
+
+      <TextBlock direction="column">
+        <Button
+          callback={() => {
+            setQuote(getRandomItem(mockQuotes))
+          }}
+        >
+          New quote
+        </Button>
+        <Link border={false} to="https://www.twitter.com/intent/tweet">
+          Tweet quote
+        </Link>
+      </TextBlock>
+    </LayoutBlock>
+  )
 }
 
 export default RandomQuotePage

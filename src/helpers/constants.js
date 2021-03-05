@@ -40,3 +40,6 @@ export const calculatorHelpers = {
 export const drumHelpers = {
   keys: ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"],
 }
+
+export const lorem =
+  "consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation"
