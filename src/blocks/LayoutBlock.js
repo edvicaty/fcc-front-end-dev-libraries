@@ -2,6 +2,7 @@ import React from "react"
 import { Layout, Text, Footer } from "../components"
 import { HeaderBlock } from "./index"
 import PropTypes from "prop-types"
+import { Box } from "theme-ui"
 
 const LayoutBlock = ({ navLinks, text, children }) => {
   return (

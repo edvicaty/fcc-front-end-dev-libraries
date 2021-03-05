@@ -1,124 +1,83 @@
 import React, { useState, useEffect, useRef } from "react"
-import { drumHelpers } from "../helpers/constants"
+import { drumHelpers, navLinks } from "../helpers/constants"
+import { Button, Text, Heading } from "../components"
+import { LayoutBlock, TextBlock } from "../blocks"
 
 const DrumPage = () => {
   const [history, setHistory] = useState([])
+  const historyRef = useRef(null)
   const audioRef = useRef(null)
   useEffect(() => {
-    audioRef.current = drumHelpers.audio
-
+    audioRef.current = {
+      Q: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"),
+      W: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"),
+      E: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"),
+      A: new Audio(
+        "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+      ),
+      S: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"),
+      D: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"),
+      Z: new Audio(
+        "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
+      ),
+      X: new Audio(
+        "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
+      ),
+      C: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"),
+    }
     window.addEventListener("keydown", e => {
       const key = e.key.toUpperCase()
       if (audioRef.current[key]) {
-        setHistory([...history, key])
         playAudio(key)
       }
     })
   }, [])
 
   function playAudio(key) {
+    historyRef.current = historyRef.current
+      ? [...historyRef.current, key]
+      : [key]
+    setHistory(historyRef.current)
     audioRef.current[key].play()
   }
 
-  const handleAudioClick = e => {
-    setHistory([...history, e.target.innerText])
-    playAudio(e.target.innerText)
+  function clearHistory() {
+    historyRef.current = null
+    setHistory([])
   }
 
   return (
-    <div id="drum-machine">
-      <h1>Click the buttons or the corresponding keys</h1>
-      <button
-        onClick={() => {
-          setHistory([])
+    <LayoutBlock navLinks={navLinks}>
+      <Heading as="h1">Drum machine</Heading>
+      <Button
+        callback={() => {
+          clearHistory([])
         }}
       >
         Clear history
-      </button>
-      <div id="display">{history.toString()}</div>
+      </Button>
+      <TextBlock direction="column">
+        <Text>
+          {history.length
+            ? history.toString()
+            : "Click the buttons or type the corresponding keys"}
+        </Text>
+      </TextBlock>
 
-      <button
-        id="drumQ"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        Q
-      </button>
-      <button
-        id="drumW"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        W
-      </button>
-      <button
-        id="drumE"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        E
-      </button>
-      <button
-        id="drumA"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        A
-      </button>
-      <button
-        id="drumS"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        S
-      </button>
-      <button
-        id="drumD"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        D
-      </button>
-      <button
-        id="drumD"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        Z
-      </button>
-      <button
-        id="drumX"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        X
-      </button>
-      <button
-        id="drumC"
-        onClick={e => {
-          handleAudioClick(e)
-        }}
-        className="drum-pad"
-      >
-        C
-      </button>
-    </div>
+      <TextBlock>
+        {drumHelpers.keys &&
+          drumHelpers.keys.map(key => (
+            <Button
+              key={key}
+              callback={e => {
+                playAudio(e.target.innerText)
+              }}
+            >
+              <Text>{key}</Text>
+            </Button>
+          ))}
+      </TextBlock>
+    </LayoutBlock>
   )
 }
 

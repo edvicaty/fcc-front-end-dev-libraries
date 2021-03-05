@@ -6,7 +6,7 @@ const Heading = ({ as, children, ...props }) => {
   return (
     <Box
       __css={{
-        margin: "tiny",
+        mb: "medium",
       }}
       as={as}
       {...props}

@@ -6,13 +6,12 @@ const Footer = ({ children }) => {
   return (
     <Box
       sx={{
-        // position: "relative",
-        // bottom: "0",
         width: "100%",
         zIndex: "30",
         backgroundColor: "white",
-        borderTop: "1px solid lightGrey",
         padding: "20px",
+        mt: "xlarge",
+        mb: "large",
       }}
     >
       {children}
