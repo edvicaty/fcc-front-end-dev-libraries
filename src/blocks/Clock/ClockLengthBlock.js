@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { formatDate } from "../../helpers/functions/clockFunctions"
-import { Button } from "../../components"
+import { Button, Text } from "../../components"
 import { TextBlock } from "../index"
 
 const ClockLengthBlock = ({
@@ -8,7 +8,6 @@ const ClockLengthBlock = ({
   defaultSessionLimit,
   handleChange,
   title,
-  ids,
   border,
 }) => {
   const [length, setLength] = useState(defaultLength)
@@ -30,16 +29,14 @@ const ClockLengthBlock = ({
   return (
     <TextBlock border={border} title={title}>
       <Button
-        id={ids.increment}
         callback={() => {
           handleIncrement()
         }}
       >
         UP
       </Button>
-      <div id={ids.display}>{formatDate(length)}</div>
+      <Text>{formatDate(length)}</Text>
       <Button
-        id={ids.decrement}
         callback={() => {
           handleDecrement()
         }}

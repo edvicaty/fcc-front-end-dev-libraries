@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { LayoutBlock } from "../blocks"
-import { Heading, Button, Text, Wrapper } from "../components"
+import { LayoutBlock, TextBlock } from "../blocks"
+import { Heading, Button, Text } from "../components"
 import { navLinks, calculatorHelpers } from "../helpers/constants"
 
 const CalculatorPage = () => {
@@ -18,7 +18,6 @@ const CalculatorPage = () => {
   }
 
   const checkIfLastOperator = value => {
-    //     refactor could be used here to use 'display' as an array of objects instead of strings
     const operators = ["*", "-", "+", "/"]
     const operatorsForMinus = ["-", "+"]
 
@@ -26,63 +25,53 @@ const CalculatorPage = () => {
       return operators.includes(display[display.length - 1]) ? true : false
     }
     return operatorsForMinus.includes(display[display.length - 1])
-      ? true
-      : false
   }
 
-  //     refactor could be implemented in here to move each case to a separate function
-  //     Maybe could be a refactor of this using a hashmap of some sort
   const setMath = (value, type) => {
-    if (type === "zero") {
-      if (firstZero === true && value == 0) {
-        return
-      }
-      setDisplay([...display, value])
-      return
-    }
-
-    if (type === "dot") {
-      if (!firstDecimal) {
-        return
-      }
-      const repeated = checkIfRepeatedDot(value)
-      !repeated && setDisplay([...display, value])
-      setFirstDecimal(false)
-      return
-    }
-
-    if (type === "number") {
-      setDisplay([...display, value])
-      setFirstZero(false)
-      return
-    }
-
-    if (type === "operator") {
-      // logic was changed for it to prevent input of multiple operators it they weren't make sense.
-      // * and / operations are allowed to be implemented for negative numbers
-      setFirstZero(true)
-      setFirstDecimal(true)
-      const lastOperator = checkIfLastOperator(value)
-      if (!lastOperator) {
+    const mathFunctions = {
+      zero: () => {
+        if (firstZero === true && value == 0) {
+          return
+        }
         setDisplay([...display, value])
-        return
-      }
+      },
+      dot: () => {
+        if (!firstDecimal) {
+          return
+        }
+        const repeated = checkIfRepeatedDot(value)
+        !repeated && setDisplay([...display, value])
+        setFirstDecimal(false)
+      },
+      number: () => {
+        setDisplay([...display, value])
+        setFirstZero(false)
+      },
+      operator: () => {
+        setFirstZero(true)
+        setFirstDecimal(true)
+        const lastOperator = checkIfLastOperator(value)
+        if (!lastOperator) {
+          setDisplay([...display, value])
+          return
+        }
 
-      const temp = [...display]
-      temp.splice(temp.length - 1)
-      setDisplay([...temp, value])
-      return
+        const temp = [...display]
+        temp.splice(temp.length - 1)
+        setDisplay([...temp, value])
+      },
     }
+    mathFunctions[type]()
   }
 
   return (
     <LayoutBlock navLinks={navLinks}>
       <Heading as="h1">JS Calculator</Heading>
-      <Wrapper>
+      <TextBlock>
         <Text>{!display.length ? 0 : display.join("")}</Text>
-      </Wrapper>
+      </TextBlock>
 
-      <Wrapper direction="row">
+      <TextBlock direction="row">
         {calculatorHelpers.keys.map(item => (
           <Button
             size="small"
@@ -96,9 +85,9 @@ const CalculatorPage = () => {
             {item.text}
           </Button>
         ))}
-      </Wrapper>
+      </TextBlock>
 
-      <Wrapper direction="row">
+      <TextBlock direction="row">
         <Button
           size="xsmall"
           callback={() => {
@@ -117,7 +106,7 @@ const CalculatorPage = () => {
         >
           clear
         </Button>
-      </Wrapper>
+      </TextBlock>
 
       <Text>
         NOTE: Logic was changed for preventing input of multiple operators if

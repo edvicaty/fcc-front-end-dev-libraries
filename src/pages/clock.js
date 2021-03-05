@@ -119,7 +119,6 @@ const ClockPage = () => {
         defaultLength={clockHelpers.defaultBreak}
         title={{ heading: "h3", text: "Break Length" }}
         handleChange={handleBreakChange}
-        ids={clockHelpers.breakIds}
       />
       <ClockLengthBlock
         border
@@ -127,11 +126,10 @@ const ClockPage = () => {
         defaultLength={clockHelpers.defaultLength}
         title={{ heading: "h3", text: "Session Length" }}
         handleChange={handleLengthChange}
-        ids={clockHelpers.sessionIds}
       />
 
       <TextBlock title={{ heading: "h2", text: "Session" }}>
-        <Text id="time-left">{formatDate(sessionLength)}</Text>
+        <Text>{formatDate(sessionLength)}</Text>
       </TextBlock>
 
       <TextBlock title={{ heading: "h2", text: "Break" }}>
@@ -145,7 +143,6 @@ const ClockPage = () => {
           callback={() => {
             manageClock()
           }}
-          id="start_stop"
         >
           START
         </Button>
@@ -153,7 +150,6 @@ const ClockPage = () => {
           callback={() => {
             manageReset()
           }}
-          id="reset"
         >
           RESET
         </Button>
