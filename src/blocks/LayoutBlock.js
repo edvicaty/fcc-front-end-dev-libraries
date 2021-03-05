@@ -1,13 +1,16 @@
 import React from "react"
-import { Layout } from "../components"
+import { Layout, Text, Footer } from "../components"
 import { HeaderBlock } from "./index"
 import PropTypes from "prop-types"
 
-const LayoutBlock = ({ navLinks, children }) => {
+const LayoutBlock = ({ navLinks, text, children }) => {
   return (
     <Layout>
       <HeaderBlock links={navLinks} />
       {children}
+      <Footer>
+        <Text>{text}</Text>
+      </Footer>
     </Layout>
   )
 }
@@ -19,7 +22,12 @@ LayoutBlock.propTypes = {
       text: PropTypes.string.isRequired,
     })
   ),
+  text: PropTypes.string,
   children: PropTypes.node.isRequired,
+}
+
+LayoutBlock.defaultProps = {
+  text: "Edgar Villavicencio",
 }
 
 export default LayoutBlock

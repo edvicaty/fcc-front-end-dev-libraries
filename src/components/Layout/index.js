@@ -11,7 +11,6 @@ const Layout = ({ children, ...props }) => {
         alignItems: "center",
         textAlign: "center",
         mt: "100px",
-        mb: "100px",
       }}
       {...props}
     >

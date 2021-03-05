@@ -10,7 +10,9 @@ const Navbar = ({ links, ...props }) => {
         display: "flex",
         justifyContent: "space-around",
         width: "100%",
-        mt: "5px",
+        padding: "small",
+        backgroundColor: "white",
+        borderBottom: "1px solid lightGrey",
       }}
       {...props}
     >
