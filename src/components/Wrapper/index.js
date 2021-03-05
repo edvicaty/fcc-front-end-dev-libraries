@@ -2,13 +2,13 @@ import React from "react"
 import { Box } from "theme-ui"
 import PropTypes from "prop-types"
 
-const Wrapper = ({ children, width, border, ...props }) => {
+const Wrapper = ({ children, width, border, direction, ...props }) => {
   return (
     <Box
       __css={{
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
+        flexDirection: direction,
+        justifyContent: "space-around",
         border: border ? "1px solid lightGrey" : "none",
         borderRadius: "3px",
         margin: "tiny",
@@ -34,11 +34,13 @@ Wrapper.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   border: PropTypes.bool,
+  direction: PropTypes.string,
 }
 
 Wrapper.defaultProps = {
   width: "70vw",
   border: false,
+  direction: "column",
 }
 
 export default Wrapper
