@@ -1,16 +1,18 @@
 import React from "react"
-import { Wrapper, Heading } from "../components/"
+import { Wrapper, Heading } from "../components"
 import { Box } from "theme-ui"
 import PropTypes from "prop-types"
 
-const CardBlock = ({ title, children, border, ...props }) => {
+const TextBlock = ({ title, children, border, direction, ...props }) => {
   return (
     <Wrapper border={border} {...props}>
-      <Heading as={title.heading}>{title.text}</Heading>
+      {title && <Heading as={title.heading}>{title.text}</Heading>}
+
       <Box
         __css={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
+          flexDirection: direction,
         }}
       >
         {children}
@@ -19,12 +21,17 @@ const CardBlock = ({ title, children, border, ...props }) => {
   )
 }
 
-CardBlock.propTypes = {
+TextBlock.propTypes = {
   title: PropTypes.shape({
     heading: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
+    direction: PropTypes.string,
   }),
   children: PropTypes.node.isRequired,
 }
 
-export default CardBlock
+TextBlock.defaultProps = {
+  direction: "row",
+}
+
+export default TextBlock

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
-import { LayoutBlock, ClockLengthBlock } from "../blocks"
-import { Text, Heading, Button, Wrapper } from "../components"
+import { LayoutBlock, ClockLengthBlock, TextBlock } from "../blocks"
+import { Text, Heading, Button } from "../components"
 import { navLinks, clockHelpers } from "../helpers/constants"
 import { formatDate } from "../helpers/functions/clockFunctions"
 
@@ -114,7 +114,7 @@ const ClockPage = () => {
     <LayoutBlock navLinks={navLinks}>
       <Heading as="h1">25 + 5 Clock</Heading>
       <ClockLengthBlock
-        border={true}
+        border
         defaultSessionLimit={clockHelpers.defaultSessionLimit}
         defaultLength={clockHelpers.defaultBreak}
         title={{ heading: "h3", text: "Break Length" }}
@@ -122,7 +122,7 @@ const ClockPage = () => {
         ids={clockHelpers.breakIds}
       />
       <ClockLengthBlock
-        border={true}
+        border
         defaultSessionLimit={clockHelpers.defaultSessionLimit}
         defaultLength={clockHelpers.defaultLength}
         title={{ heading: "h3", text: "Session Length" }}
@@ -130,19 +130,17 @@ const ClockPage = () => {
         ids={clockHelpers.sessionIds}
       />
 
-      <Wrapper title={{ heading: "h2", text: "Session" }}>
-        <Heading as="h2">Remaining</Heading>
+      <TextBlock title={{ heading: "h2", text: "Session" }}>
         <Text id="time-left">{formatDate(sessionLength)}</Text>
-      </Wrapper>
+      </TextBlock>
 
-      <Wrapper title={{ heading: "h2", text: "Break" }}>
-        <Heading as="h2">Time to break</Heading>
+      <TextBlock title={{ heading: "h2", text: "Break" }}>
         <Text>{formatDate(breakLength)}</Text>
-      </Wrapper>
+      </TextBlock>
 
       <Text>{displayTimerMessage && "A new session has begun"}</Text>
 
-      <Wrapper>
+      <TextBlock>
         <Button
           callback={() => {
             manageClock()
@@ -159,7 +157,7 @@ const ClockPage = () => {
         >
           RESET
         </Button>
-      </Wrapper>
+      </TextBlock>
     </LayoutBlock>
   )
 }

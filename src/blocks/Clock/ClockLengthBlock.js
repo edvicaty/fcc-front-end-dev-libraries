@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { formatDate } from "../../helpers/functions/clockFunctions"
 import { Button } from "../../components"
-import { CardBlock } from "../index"
+import { TextBlock } from "../index"
 
 const ClockLengthBlock = ({
   defaultLength,
@@ -28,7 +28,7 @@ const ClockLengthBlock = ({
   }
 
   return (
-    <CardBlock border={border} title={title}>
+    <TextBlock border={border} title={title}>
       <Button
         id={ids.increment}
         callback={() => {
@@ -46,7 +46,7 @@ const ClockLengthBlock = ({
       >
         DOWN
       </Button>
-    </CardBlock>
+    </TextBlock>
   )
 }
 
