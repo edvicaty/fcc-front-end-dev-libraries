@@ -1,7 +1,7 @@
 export default {
   colors: {
-    text: "#111",
-    background: "#fff",
+    text: "#3d3d3d",
+    background: "#FCFCFC",
   },
   fonts: {
     body: "Lato",
@@ -30,6 +30,7 @@ export default {
       fontFamily: "body",
       fontWeight: "body",
       lineHeight: "body",
+      color: "text",
     },
     h1: {
       fontSize: "3xl",

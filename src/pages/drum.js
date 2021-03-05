@@ -48,14 +48,16 @@ const DrumPage = () => {
 
   return (
     <LayoutBlock navLinks={navLinks}>
-      <Heading as="h1">Drum machine</Heading>
-      <Button
-        callback={() => {
-          clearHistory([])
-        }}
-      >
-        Clear history
-      </Button>
+      <TextBlock title={{ heading: "h1", text: "Drum Machine" }}>
+        <Button
+          callback={() => {
+            clearHistory([])
+          }}
+        >
+          Clear history
+        </Button>
+      </TextBlock>
+
       <TextBlock direction="column">
         <Text>
           {history.length

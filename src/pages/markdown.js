@@ -1,10 +1,12 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { useState } from "react"
+import { LayoutBlock, TextBlock } from "../blocks"
+import { Heading, Button, Text } from "../components"
+import { navLinks, calculatorHelpers } from "../helpers/constants"
 
 const MarkdownPage = () => (
-  <div>
-    <p>MarkdownPage goes here</p>
-  </div>
+  <LayoutBlock navLinks={navLinks}>
+    <Heading as="h1">Markdown</Heading>
+  </LayoutBlock>
 )
 
 export default MarkdownPage

@@ -11,7 +11,8 @@ const Footer = ({ children }) => {
         backgroundColor: "white",
         padding: "20px",
         mt: "xlarge",
-        mb: "large",
+        position: "fixed",
+        bottom: "0",
       }}
     >
       {children}

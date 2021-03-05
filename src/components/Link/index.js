@@ -5,11 +5,24 @@ import { Text } from "../index"
 
 const LinkComponent = ({ children, to, sx, ...props }) => {
   return (
-    <Link style={{ textDecoration: "none", width: "100%" }} to={to} {...props}>
+    <Link
+      style={{
+        textDecoration: "none",
+        width: "100%",
+        backgroundColor: "white",
+      }}
+      to={to}
+      {...props}
+    >
       <Text
         sx={{
           ...sx,
-          ":hover": { transform: "scale(1.1) translateY(0.3rem)" },
+          color: "text",
+          height: "100%",
+          padding: "small",
+          ":hover": {
+            boxShadow: "0px 0px 12px -2px rgba(0, 0, 0, 0.4)",
+          },
         }}
       >
         {children}

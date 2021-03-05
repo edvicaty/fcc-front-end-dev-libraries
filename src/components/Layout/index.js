@@ -10,7 +10,8 @@ const Layout = ({ children, ...props }) => {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        mt: "100px",
+        mt: "xlarge",
+        mb: "xlarge",
       }}
       {...props}
     >

@@ -66,8 +66,7 @@ const CalculatorPage = () => {
 
   return (
     <LayoutBlock navLinks={navLinks}>
-      <Heading as="h1">JS Calculator</Heading>
-      <TextBlock>
+      <TextBlock title={{ heading: "h1", text: "JS Calculator" }}>
         <Text>{!display.length ? 0 : display.join("")}</Text>
       </TextBlock>
 
