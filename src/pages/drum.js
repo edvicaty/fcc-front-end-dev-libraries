@@ -1,16 +1,39 @@
-import * as React from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Link } from "gatsby"
 
 const DrumPage = () => {
-  const [history, setHistory] = React.useState([])
+  const [history, setHistory] = useState([])
+  const audioRef = useRef(null)
+  useEffect(() => {
+    audioRef.current = {
+      Q: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"),
+      W: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"),
+      E: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"),
+      A: new Audio(
+        "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+      ),
+      S: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"),
+      D: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"),
+      Z: new Audio(
+        "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
+      ),
+      X: new Audio(
+        "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
+      ),
+      C: new Audio("https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"),
+    }
 
-  const playAudio = key => {
-    document.getElementById(key).play()
-  }
+    window.addEventListener("keydown", e => {
+      const key = e.key.toUpperCase()
+      if (audioRef.current[key]) {
+        setHistory([...history, key])
+        playAudio(key)
+      }
+    })
+  }, [])
 
-  window.onkeydown = e => {
-    setHistory([...history, e.key.toUpperCase()])
-    playAudio(e.key.toUpperCase())
+  function playAudio(key) {
+    audioRef.current[key].play()
   }
 
   const handleAudioClick = e => {
@@ -37,11 +60,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
-          id="Q"
-          className="clip"
-        />
         Q
       </button>
       <button
@@ -51,11 +69,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
-          id="W"
-          className="clip"
-        />
         W
       </button>
       <button
@@ -65,11 +78,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
-          id="E"
-          className="clip"
-        />
         E
       </button>
       <button
@@ -79,11 +87,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
-          id="A"
-          className="clip"
-        />
         A
       </button>
       <button
@@ -93,11 +96,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
-          id="S"
-          className="clip"
-        />
         S
       </button>
       <button
@@ -107,11 +105,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
-          id="D"
-          className="clip"
-        />
         D
       </button>
       <button
@@ -121,12 +114,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          id="drumZ"
-          src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
-          id="Z"
-          className="clip"
-        />
         Z
       </button>
       <button
@@ -136,11 +123,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
-          id="X"
-          className="clip"
-        />
         X
       </button>
       <button
@@ -150,11 +132,6 @@ const DrumPage = () => {
         }}
         className="drum-pad"
       >
-        <audio
-          src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
-          id="C"
-          className="clip"
-        />
         C
       </button>
     </div>
