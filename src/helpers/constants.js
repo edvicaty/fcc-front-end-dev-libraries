@@ -43,3 +43,24 @@ export const drumHelpers = {
 
 export const lorem =
   "consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation"
+
+export const markdownHelpers = {
+  text: `# h1   
+    ## h2  
+    ### h3  
+    [link](https://www.freecodecamp.com)  
+    ${"```"}javascript
+    var s = "JavaScript syntax highlighting";
+    alert(s);
+    ${"```"} 
+    ${"`"}inline code${"`"} 
+    - list 
+    
+    > blockquote 
+    
+    image: 
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1") 
+    
+    **strong** 
+    `,
+}
