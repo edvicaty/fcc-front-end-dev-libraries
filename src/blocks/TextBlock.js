@@ -10,6 +10,7 @@ const TextBlock = ({ title, children, border, direction, ...props }) => {
 
       <Box
         __css={{
+          flexWrap: "wrap",
           display: "flex",
           justifyContent: "space-around",
           flexDirection: direction,
