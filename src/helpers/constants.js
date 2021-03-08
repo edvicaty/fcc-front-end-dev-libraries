@@ -70,3 +70,8 @@ image:
 export const randomQuotesHelpers = {
   apiEndpoint: "https://goquotes-api.herokuapp.com/api/v1/random?count=1",
 }
+
+export const imageHelpers = {
+  highResImage:
+    "https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/07/05182149/dogecoin-1.jpg",
+}

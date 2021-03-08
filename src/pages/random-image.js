@@ -1,85 +1,67 @@
 import React, { useState } from "react"
 import fetch from "cross-fetch"
+import { StaticImage } from "gatsby-plugin-image"
 import { LayoutBlock, SectionBlock } from "../blocks"
 import { Button, Text, Link } from "../components"
-import { navLinks, lorem, randomQuotesHelpers } from "../helpers/constants"
+import {
+  navLinks,
+  imageHelpers,
+  randomQuotesHelpers,
+} from "../helpers/constants"
 import {
   generateRandomArray,
   getRandomItem,
 } from "../helpers/functions/generalFunctions"
+//TODO: static image html tag
+//TODO: static image gatsby-image
+//TODO: static image gatsby-plugin-image
 
-const generateQuotesArray = amount => {
-  const quotesArr = []
-  for (let i = 0; i < amount; i++) {
-    quotesArr.push({
-      author: generateRandomArray(lorem.split(" "), 2).join(" "),
-      text: generateRandomArray(lorem.split(" "), 10).join(" "),
-    })
-  }
-  return quotesArr
-}
-
-const mockQuotes = generateQuotesArray(10)
+//TODO: fetched image html tag
+//TODO: fetched image gatsby-plugin-image
 
 const RandomImagePage = () => {
-  const [quote, setQuote] = useState(getRandomItem(mockQuotes))
   const [apiQuote, setApiQuote] = useState({
     text: "Click 'New quote' to fetch from the API",
     author: "Edgar Villavicencio",
   })
 
-  const getQuotes = async () => {
-    // JS random Lorem
-    setQuote(getRandomItem(mockQuotes))
-
-    // API call quotes
-    const apiResponse = await fetch(randomQuotesHelpers.apiEndpoint)
-
-    if (apiResponse.status !== 200) {
-      setApiQuote({
-        text: "incorrect API response, try again",
-        author: "Edgar Villavicencio",
-      })
-      return
-    }
-
-    const { quotes } = await apiResponse.json()
-
-    setApiQuote({ text: quotes[0].text, author: quotes[0].author })
-  }
-
   return (
     <LayoutBlock navLinks={navLinks}>
-      <SectionBlock title={{ heading: "h1", text: "Random Quote generator" }}>
-        <Text>static JS vs API call from https://goquotes.docs.apiary.io/</Text>
-      </SectionBlock>
-      <SectionBlock
-        direction="column"
-        title={{
-          heading: "h2",
-          text: "Random Lorem Ipsum (JS generated)",
-        }}
-      >
-        <Text>"{quote.text}"</Text>
-        <Text>{quote.author}</Text>
+      <SectionBlock title={{ heading: "h1", text: "Image comparison" }}>
+        <Text>Compare html image vs Gatsby Image</Text>
       </SectionBlock>
 
       <SectionBlock
         direction="column"
         title={{
           heading: "h2",
-          text: "Random Quote (API call)",
+          text: "html image from URL",
         }}
       >
-        <Text>"{apiQuote.text}"</Text>
-        <Text>{apiQuote.author}</Text>
+        <img src={imageHelpers.highResImage} alt="fetched html image" />
       </SectionBlock>
 
-      <SectionBlock direction="column">
-        <Button callback={getQuotes}>New quote</Button>
-        <Link border={false} to="https://www.twitter.com/intent/tweet">
-          Tweet quote
-        </Link>
+      <SectionBlock
+        direction="column"
+        title={{
+          heading: "h2",
+          text: "new Gatsby image from URL",
+        }}
+      >
+        <StaticImage
+          src={imageHelpers.highResImage}
+          alt="fetched gatsby image"
+        />
+      </SectionBlock>
+
+      <SectionBlock
+        direction="column"
+        title={{
+          heading: "h2",
+          text: "new Gatsby image from 'images folder",
+        }}
+      >
+        <StaticImage src="../images/highRes.jpg" alt="static gatsby image" />
       </SectionBlock>
     </LayoutBlock>
   )
