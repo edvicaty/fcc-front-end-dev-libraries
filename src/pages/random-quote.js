@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { LayoutBlock, TextBlock } from "../blocks"
+import { LayoutBlock, SectionBlock } from "../blocks"
 import { Button, Text, Link } from "../components"
 import { navLinks, lorem } from "../helpers/constants"
 import {
@@ -25,15 +25,15 @@ const RandomQuotePage = () => {
 
   return (
     <LayoutBlock navLinks={navLinks}>
-      <TextBlock
+      <SectionBlock
         direction="column"
         title={{ heading: "h1", text: "Random quote" }}
       >
         <Text>{quote.text}</Text>
         <Text>{quote.author}</Text>
-      </TextBlock>
+      </SectionBlock>
 
-      <TextBlock direction="column">
+      <SectionBlock direction="column">
         <Button
           callback={() => {
             setQuote(getRandomItem(mockQuotes))
@@ -44,7 +44,7 @@ const RandomQuotePage = () => {
         <Link border={false} to="https://www.twitter.com/intent/tweet">
           Tweet quote
         </Link>
-      </TextBlock>
+      </SectionBlock>
     </LayoutBlock>
   )
 }

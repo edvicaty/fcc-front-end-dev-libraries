@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { LayoutBlock, TextBlock } from "../blocks"
-import { Heading, Button, Text } from "../components"
+import { LayoutBlock, SectionBlock } from "../blocks"
+import { Button, Text } from "../components"
 import { navLinks, calculatorHelpers } from "../helpers/constants"
 
 const CalculatorPage = () => {
@@ -66,11 +66,11 @@ const CalculatorPage = () => {
 
   return (
     <LayoutBlock navLinks={navLinks}>
-      <TextBlock title={{ heading: "h1", text: "JS Calculator" }}>
+      <SectionBlock title={{ heading: "h1", text: "JS Calculator" }}>
         <Text>{!display.length ? 0 : display.join("")}</Text>
-      </TextBlock>
+      </SectionBlock>
 
-      <TextBlock direction="row">
+      <SectionBlock direction="row">
         {calculatorHelpers.keys.map(item => (
           <Button
             size="small"
@@ -84,9 +84,9 @@ const CalculatorPage = () => {
             {item.text}
           </Button>
         ))}
-      </TextBlock>
+      </SectionBlock>
 
-      <TextBlock direction="row">
+      <SectionBlock direction="row">
         <Button
           size="xsmall"
           callback={() => {
@@ -105,13 +105,15 @@ const CalculatorPage = () => {
         >
           clear
         </Button>
-      </TextBlock>
+      </SectionBlock>
 
-      <Text>
-        NOTE: Logic was changed for preventing input of multiple operators if
-        they weren't make sense. * and / operations are allowed to be
-        implemented for negative numbers
-      </Text>
+      <SectionBlock>
+        <Text>
+          NOTE: Logic was changed for preventing input of multiple operators if
+          they weren't make sense. * and / operations are allowed to be
+          implemented for negative numbers
+        </Text>
+      </SectionBlock>
     </LayoutBlock>
   )
 }

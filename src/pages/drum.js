@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { drumHelpers, navLinks } from "../helpers/constants"
 import { Button, Text, Heading } from "../components"
-import { LayoutBlock, TextBlock } from "../blocks"
+import { LayoutBlock, SectionBlock } from "../blocks"
 
 const DrumPage = () => {
   const [history, setHistory] = useState([])
@@ -48,7 +48,7 @@ const DrumPage = () => {
 
   return (
     <LayoutBlock navLinks={navLinks}>
-      <TextBlock title={{ heading: "h1", text: "Drum Machine" }}>
+      <SectionBlock title={{ heading: "h1", text: "Drum Machine" }}>
         <Button
           callback={() => {
             clearHistory([])
@@ -56,17 +56,17 @@ const DrumPage = () => {
         >
           Clear history
         </Button>
-      </TextBlock>
+      </SectionBlock>
 
-      <TextBlock direction="column">
+      <SectionBlock direction="column">
         <Text>
           {history.length
             ? history.toString()
             : "Click the buttons or type the corresponding keys"}
         </Text>
-      </TextBlock>
+      </SectionBlock>
 
-      <TextBlock>
+      <SectionBlock>
         {drumHelpers.keys &&
           drumHelpers.keys.map(key => (
             <Button
@@ -78,7 +78,7 @@ const DrumPage = () => {
               <Text>{key}</Text>
             </Button>
           ))}
-      </TextBlock>
+      </SectionBlock>
     </LayoutBlock>
   )
 }

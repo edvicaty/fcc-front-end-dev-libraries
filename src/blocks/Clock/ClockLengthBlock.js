@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { formatDate } from "../../helpers/functions/clockFunctions"
 import { Button, Text } from "../../components"
-import { TextBlock } from "../index"
+import { SectionBlock } from "../index"
 
 const ClockLengthBlock = ({
   defaultLength,
@@ -27,7 +27,7 @@ const ClockLengthBlock = ({
   }
 
   return (
-    <TextBlock border={border} title={title}>
+    <SectionBlock border={border} title={title}>
       <Button
         callback={() => {
           handleIncrement()
@@ -43,7 +43,7 @@ const ClockLengthBlock = ({
       >
         DOWN
       </Button>
-    </TextBlock>
+    </SectionBlock>
   )
 }
 

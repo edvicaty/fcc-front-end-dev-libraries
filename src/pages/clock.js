@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from "react"
-import { LayoutBlock, ClockLengthBlock, TextBlock } from "../blocks"
+import { LayoutBlock, ClockLengthBlock, SectionBlock } from "../blocks"
 import { Text, Heading, Button } from "../components"
 import { navLinks, clockHelpers } from "../helpers/constants"
 import { formatDate } from "../helpers/functions/clockFunctions"
 
 const ClockPage = () => {
-  // TODO: move functions into own folder
   const [breakLength, setBreakLength] = useState(clockHelpers.defaultBreak)
   const [sessionLength, setSessionLength] = useState(clockHelpers.defaultLength)
   const remainingBreakRef = useRef(clockHelpers.defaultBreak)
@@ -128,17 +127,18 @@ const ClockPage = () => {
         handleChange={handleLengthChange}
       />
 
-      <TextBlock title={{ heading: "h2", text: "Session" }}>
+      <SectionBlock title={{ heading: "h2", text: "Session" }}>
         <Text>{formatDate(sessionLength)}</Text>
-      </TextBlock>
+      </SectionBlock>
 
-      <TextBlock title={{ heading: "h2", text: "Break" }}>
+      <SectionBlock direction="column" title={{ heading: "h2", text: "Break" }}>
         <Text>{formatDate(breakLength)}</Text>
-      </TextBlock>
+        <Text>
+          {displayTimerMessage ? "A new session has begun" : "Time to break"}
+        </Text>
+      </SectionBlock>
 
-      <Text>{displayTimerMessage && "A new session has begun"}</Text>
-
-      <TextBlock>
+      <SectionBlock>
         <Button
           callback={() => {
             manageClock()
@@ -153,7 +153,7 @@ const ClockPage = () => {
         >
           RESET
         </Button>
-      </TextBlock>
+      </SectionBlock>
     </LayoutBlock>
   )
 }

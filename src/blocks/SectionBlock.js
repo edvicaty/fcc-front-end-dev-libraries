@@ -3,7 +3,7 @@ import { Wrapper, Heading } from "../components"
 import { Box } from "theme-ui"
 import PropTypes from "prop-types"
 
-const TextBlock = ({ title, children, border, direction, ...props }) => {
+const SectionBlock = ({ title, children, border, direction, ...props }) => {
   return (
     <Wrapper border={border} {...props}>
       {title && <Heading as={title.heading}>{title.text}</Heading>}
@@ -22,7 +22,7 @@ const TextBlock = ({ title, children, border, direction, ...props }) => {
   )
 }
 
-TextBlock.propTypes = {
+SectionBlock.propTypes = {
   title: PropTypes.shape({
     heading: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
@@ -31,8 +31,8 @@ TextBlock.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-TextBlock.defaultProps = {
+SectionBlock.defaultProps = {
   direction: "row",
 }
 
-export default TextBlock
+export default SectionBlock
