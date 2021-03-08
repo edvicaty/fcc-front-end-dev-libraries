@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import fetch from "cross-fetch"
 import { LayoutBlock, SectionBlock } from "../blocks"
 import { Button, Text, Link } from "../components"
 import { navLinks, lorem } from "../helpers/constants"
@@ -27,7 +28,10 @@ const RandomQuotePage = () => {
     <LayoutBlock navLinks={navLinks}>
       <SectionBlock
         direction="column"
-        title={{ heading: "h1", text: "Random quote" }}
+        title={{
+          heading: "h2",
+          text: "Random Lorem Ipsum quote (JS generated)",
+        }}
       >
         <Text>{quote.text}</Text>
         <Text>{quote.author}</Text>
