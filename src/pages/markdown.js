@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { LayoutBlock, TextBlock } from "../blocks"
-import { Heading, Button, Text } from "../components"
-import { navLinks, calculatorHelpers } from "../helpers/constants"
-import { marked } from "marked"
+import { LayoutBlock } from "../blocks"
+import { Heading } from "../components"
+import { navLinks, markdownHelpers } from "../helpers/constants"
+import marked from "marked"
 
 const MarkdownPage = () => {
-  const [text, setText] = useState(markdownExample)
+  const [text, setText] = useState(markdownHelpers.text)
   return (
     <LayoutBlock navLinks={navLinks}>
       <Heading as="h1">Markdown</Heading>
