@@ -41,18 +41,15 @@ const RandomImagePage = () => {
         <img src={imageHelpers.highResImage} alt="fetched html image" />
       </SectionBlock>
 
-      <SectionBlock
+      {/* <SectionBlock
         direction="column"
         title={{
           heading: "h2",
           text: "new Gatsby image from URL",
         }}
       >
-        <StaticImage
-          src={imageHelpers.highResImage}
-          alt="fetched gatsby image"
-        />
-      </SectionBlock>
+        <StaticImage src={imageHelpers.highResImage} alt="fetched gatsby" />
+      </SectionBlock> */}
 
       <SectionBlock
         direction="column"
@@ -61,7 +58,7 @@ const RandomImagePage = () => {
           text: "new Gatsby image from 'images folder",
         }}
       >
-        <StaticImage src="../images/highRes.jpg" alt="static gatsby image" />
+        <StaticImage src="../images/highRes.jpg" alt="static gatsby" />
       </SectionBlock>
     </LayoutBlock>
   )
