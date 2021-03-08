@@ -19,7 +19,9 @@ const LinkComponent = ({ children, to, sx, border, ...props }) => {
           ...sx,
           color: "text",
           height: "100%",
-          padding: "small",
+          pt: "small",
+          pb: "small",
+          fontSize: "tiny",
           ":hover": {
             boxShadow: border ? "0px 0px 12px -2px rgba(0, 0, 0, 0.4)" : null,
             backgroundColor: "#f2f2f2",
