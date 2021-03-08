@@ -65,3 +65,7 @@ image:
 **strong**
 `,
 }
+
+export const randomQuotesHelpers = {
+  apiEndpoint: "https://goquotes-api.herokuapp.com/api/v1/random?count=1",
+}
