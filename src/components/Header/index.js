@@ -12,6 +12,7 @@ const Header = ({ children, ...props }) => {
         justifyContent: "spaceBetween",
         top: "0",
         width: "100%",
+        zIndex: "30",
       }}
       {...props}
     >

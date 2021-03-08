@@ -70,24 +70,3 @@ image:
 export const randomQuotesHelpers = {
   apiEndpoint: "https://goquotes-api.herokuapp.com/api/v1/random?count=1",
 }
-
-export const imageHelpers = [
-  {
-    name: "JPG",
-    url:
-      "https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/07/05182149/dogecoin-1.jpg",
-  },
-  {
-    name: "JPG2",
-    url:
-      "https://ih1.redbubble.net/image.445130528.1102/flat,750x1000,075,f.u2.jpg",
-  },
-  {
-    name: "JPEG",
-    url: "https://i.blogs.es/8b4a9d/dogecoin/450_1000.jpeg",
-  },
-  {
-    name: "PNG",
-    url: "http://assets.stickpng.com/images/5845e6cffb0b0755fa99d7f1.png",
-  },
-]
