@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import app from './app';
+import { darkMode } from './darkMode';
 
-export default combineReducers({ app });
+export default combineReducers({ darkMode });

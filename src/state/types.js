@@ -1,0 +1,1 @@
+export const DARK_MODE_CHANGE = "DARK_MODE_CHANGE"
