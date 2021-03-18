@@ -4,7 +4,7 @@ import { Text } from "../components"
 import { navLinks } from "../helpers/constants"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../redux/state/actionCreators';
+import * as actionCreators from '../redux/actionCreators';
 
 const IndexPage = ({ isDarkMode, dispatch, ...props }) => {
   console.log(`props`, props)
@@ -31,5 +31,4 @@ function mapDispatchToProps(dispatch) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
-
 
